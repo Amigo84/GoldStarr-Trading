@@ -46,10 +46,24 @@ namespace GoldStarr_Trading
         {
 
             this.InitializeComponent();
+            
 
             DataContext = this;
 
             StoreClass store = new StoreClass();
+
+
+
+            private void AddNewSupplier_Click(object sender, RoutedEventArgs e)
+            {
+                string nameNewSupVar = NewSupplier.Text;
+
+                //Initierar en lista mes objekt supplier i
+                ObservableCollection<NewSupplier> collectionNewSuppliers = new ObservableCollection<NewSupplier>();
+
+                collectionNewSuppliers.Add(new NewSupplier() { nameNewSupVar });
+
+            }
 
             InStockList.ItemsSource = store.GetCurrentStockList();
             StockToAddList.ItemsSource = store.GetCurrentDeliverysList();
@@ -190,7 +204,33 @@ namespace GoldStarr_Trading
 
 
         }
-        private void CustomersTabComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+
+
+        private void CurrentSup_Click(object sender, RoutedEventArgs e)
+        {
+            string newSup = NewSupplierTextBox.Text;
+            
+
+            int ageInt = 0;
+
+            if (String.IsNullOrEmpty(newSup))
+            {
+                ErrorMessage.Text = "Write s supplier name!";
+
+
+                _app.People.Add(new Person() { Name = name, Age = ageInt });
+
+                NewSupplierTextBox.Text = "";
+                PersonAgeTextBox.Text = "";
+            }
+            else
+            {
+                
+            }
+
+
+
+            private void CustomersTabComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             
             string customerName = e.AddedItems[0].ToString();
@@ -256,6 +296,11 @@ namespace GoldStarr_Trading
         }
 
         #endregion
+
+        private void CurrentSup_TextChanged(object sender, TextChangedEventArgs e)
+        {
+
+        }
     }
 
     public static class Extensions

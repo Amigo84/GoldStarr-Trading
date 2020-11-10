@@ -261,11 +261,7 @@
                     <RelativePanel  Grid.Row="1" Grid.Column="1">
                         <StackPanel  x:Name="Stock" Margin="20">
 
-                            <!--<ComboBox x:Name="CreateOrderTabCustomersComboBox" PlaceholderText="Select Customer" 
-                                      ItemsSource="{x:Bind CustomerList}" SelectionChanged="CreateOrderTabCustomersComboBox_SelectionChanged"
-                                      Header="Customer"  HorizontalContentAlignment="Center" Width="400">
-                                <x:String>WA</x:String>
-                            </ComboBox>-->
+                            
 
                             <ComboBox x:Name="CreateOrderTabCustomersComboBox" PlaceholderText="Select Customer" 
                                       ItemsSource="{x:Bind CustomerList}" SelectionChanged="CreateOrderTabCustomersComboBox_SelectionChanged"
@@ -280,11 +276,7 @@
 
                             <RelativePanel>
 
-                                <!--<ComboBox x:Name="CreateOrderTabItemComboBox" PlaceholderText="Select Item" 
-                                          SelectedValue="{Binding Name}" SelectionChanged="CreateOrderTabItemComboBox_SelectionChanged" 
-                                          Header="Item" HorizontalContentAlignment="Center" Margin="0,24,0,0"  Width="400">
-                                    <x:String>WA</x:String>
-                                </ComboBox>-->
+                             
 
                                 <ComboBox x:Name="CreateOrderTabItemComboBox" PlaceholderText="Select Item" 
                                           ItemsSource="{x:Bind StockList}" SelectionChanged="CreateOrderTabItemComboBox_SelectionChanged" 
@@ -305,6 +297,7 @@
                             </RelativePanel>
 
                             <TextBox x:Name="Block" PlaceholderText="Added items" Margin="0,24,0,0" Width="555" Height="150" HorizontalAlignment="Left" />
+                            <ScrollContentPresenter Height="100"/>
 
                         </StackPanel>
                     </RelativePanel>
@@ -410,30 +403,7 @@
             </PivotItem>
 
 
-            <!--#region Code For Release2-->
-            <!--<PivotItem Header="Suppliers" Margin="0">
-                <Grid Background="White">
-                    <RelativePanel>
-                        <StackPanel x:Name="Supplier" Margin="20">
-
-                            <ComboBox x:Name="Suppliers" PlaceholderText="Select Supplier" HorizontalContentAlignment="Center" Margin="0,24,0,0"  Width="400">
-                                <x:String>WA</x:String>
-                            </ComboBox>
-
-                            <TextBox x:Name="SupplierName" Header= "Supplier Name" Margin="0,24,0,0" MaxLength="320" Width="400" HorizontalAlignment="Left" InputScope="PersonalFullName"/>
-                            <TextBox x:Name="SupplierPhoneNumber" Header="Phone Number" PlaceholderText="+46 0707 123 456" Margin="0,24,0,0" MaxLength="50" Width="400" HorizontalAlignment="Left" InputScope="TelephoneNumber" />
-                            <TextBox x:Name="SupplierAddress" Header="Address" PlaceholderText="Address" Margin="0,24,0,0" MaxLength="50" Width="400" HorizontalAlignment="Left" InputScope="AlphanumericFullWidth" />
-
-                            <RelativePanel>
-                                <TextBox x:Name="SupplierZipCode" PlaceholderText="Zip Code" Margin="0,24,0,0" MaxLength="6" Width="150" HorizontalAlignment="Left" InputScope="Number" />
-                                <TextBox x:Name="SupplierCity" PlaceholderText="City" Margin="24,24,0,0" MaxLength="50" Width="226" HorizontalAlignment="Left" InputScope="Text" RelativePanel.RightOf="SupplierZipCode"/>
-                            </RelativePanel>
-
-                        </StackPanel>
-                    </RelativePanel>
-                </Grid>
-            </PivotItem>-->
-            <!--#endregion-->
+          
 
 
             <PivotItem Header="Delivery's"  Margin="10,0,10,10">
@@ -530,6 +500,183 @@
                     </StackPanel>
                 </Grid>
             </PivotItem>
+
+            
+            <PivotItem Header="Supplier"  Margin="10,0,10,10">
+                <Grid Background="White">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="20"/>
+                        <ColumnDefinition Width="auto"/>
+                        <ColumnDefinition Width="20"/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="20"/>
+                        <RowDefinition Height="120"/>
+                        <RowDefinition Height="35"/>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="20"/>
+                    </Grid.RowDefinitions>
+
+                    <RelativePanel Grid.Row="1" Grid.Column="1">
+
+                        <StackPanel x:Name="SupplierSt" Margin="20">
+
+                            <TextBox Grid.Row="1" x:Name="NewSupplier" Header="New Supplier" PlaceholderText="" 
+                                     Margin="0,24,0,0" MaxLength="50" Width="400" HorizontalAlignment="Left" IsReadOnly="False"/>
+                        </StackPanel>
+                        
+                        
+                    </RelativePanel>
+                    
+                    <RelativePanel Grid.Row="2" Grid.Column="1">
+
+                        <Button x:Name="AddNewSupplier" Content="Add" Grid.Column="1" Margin="370,4,20,0" Grid.Row="3" VerticalAlignment="Top"/>
+
+
+                    </RelativePanel>
+
+
+                    <RelativePanel Grid.Row="3" Grid.Column="1">
+
+                        <TextBox x:Name="AddedSuppliers" Header="Suppliers" PlaceholderText="Added Suppliers" Margin="20,24,0,0" Width="400" Height="150" HorizontalAlignment="Left" TextChanged="CurrentSup_TextChanged" />
+
+                    </RelativePanel>
+                    
+
+
+
+
+                </Grid>
+            </PivotItem>
+
+
+          
+            <PivotItem Header="New merchandise"  Margin="10,0,10,10">
+                <Grid Background="White">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="20"/>
+                        <ColumnDefinition Width="auto"/>
+                        <ColumnDefinition Width="20"/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="20"/>
+                        <RowDefinition Height="120"/>
+                        <RowDefinition Height="35"/>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="20"/>
+                    </Grid.RowDefinitions>
+
+                    <RelativePanel Grid.Row="1" Grid.Column="1">
+                        <StackPanel x:Name="MerchSt" Margin="20">
+
+                            <TextBox Grid.Row="1" x:Name="NewMerchindise" Header="New Merchandise" PlaceholderText="" 
+                                     Margin="0,24,0,0" MaxLength="50" Width="400" HorizontalAlignment="Left" IsReadOnly="False"/>
+                        
+                        </StackPanel>
+
+
+                    </RelativePanel>
+
+                    <RelativePanel Grid.Row="2" Grid.Column="1">
+
+                        <Button x:Name="AddMerchindice" Content="Add" Grid.Column="1" Margin="370,4,20,0" Grid.Row="3" VerticalAlignment="Top"/>
+
+
+                    </RelativePanel>
+
+
+                    <RelativePanel Grid.Row="3" Grid.Column="1">
+
+                        <TextBox x:Name="AddedMerchindise" Header="Merchandise" PlaceholderText="Added Murchendise" Margin="20,24,0,0" Width="400" Height="150" HorizontalAlignment="Left" TextChanged="CurrentSup_TextChanged" />
+
+                    </RelativePanel>
+
+
+
+
+                </Grid>
+            </PivotItem>
+
+
+
+
+
+            <!--TODO: 
+            <PivotItem Header="Suppliers"  Margin="10,0,10,10">
+                <Grid Background="White">
+
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="20"/>
+                        <ColumnDefinition Width="auto"/>
+                        <ColumnDefinition Width="auto"/>
+                        <ColumnDefinition Width="20"/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="20"/>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="20"/>
+                    </Grid.RowDefinitions>
+
+
+                    <TextBlock  x:Name="MerchandisePanelHeader" Text="Merchandise in Stock" 
+                                Grid.Row="1" Grid.Column="2" Grid.ColumnSpan="2" Margin="20"
+                                FontSize="36" FontWeight="SemiBold" HorizontalAlignment="Center" TextDecorations="Underline"/>
+
+                    <StackPanel Grid.Row="2" Grid.Column="2" Grid.ColumnSpan="2" x:Name="MerchandiseStock" Margin="10">
+
+                        <ListViewHeaderItem>
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="10"/>
+                                    <ColumnDefinition Width="200"/>
+                                    <ColumnDefinition Width="200"/>
+                                    <ColumnDefinition Width="50"/>
+                                    <ColumnDefinition Width="auto"/>
+                                    <ColumnDefinition Width="auto"/>
+                                </Grid.ColumnDefinitions>
+
+                                <TextBlock Text="Supplier" Grid.Row="1" Grid.Column="1" Margin="15,0,0,0"/>
+                                <TextBlock Text="Item" Grid.Row="1" Grid.Column="2" Margin="15,0,0,0"/>
+
+                                <TextBlock Text="Qty" Grid.Row="1" Grid.Column="3" Margin="15,0,0,0"/>
+                               
+                            </Grid>
+                        </ListViewHeaderItem>
+
+                        <ListView x:Name="InStockList" BorderBrush="Black" BorderThickness="1" SelectionMode="None">
+                            
+                            <ListView.ItemTemplate>
+                                <DataTemplate>
+                                    <RelativePanel Margin="15">
+                                        <Grid>
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="200"/>
+                                                <ColumnDefinition Width="200"/>
+                                                <ColumnDefinition Width="50"/>
+                                                <ColumnDefinition Width="auto"/>
+                                                <ColumnDefinition Width="auto"/>
+                                            </Grid.ColumnDefinitions>
+
+                                            <TextBlock Text="{Binding Supplier}" Margin="10,0,0,0" Grid.Column="0"/>
+                                            <TextBlock Text="{Binding ItemName}" Margin="10,0,0,0" Grid.Column="1"/>
+                                            <TextBlock x:Name="QTY" Text="{Binding Qty}" Margin="20,0,0,0" Grid.Column="2"/>
+                                           
+
+                                        </Grid>
+                                    </RelativePanel>
+                                </DataTemplate>
+                            </ListView.ItemTemplate>
+                        </ListView> 
+                          
+
+
+                        
+
+
+                    </StackPanel>
+                </Grid>
+            </PivotItem> -->
 
             <!--#region OLD-->
             <!--<Pivot.RightHeader>

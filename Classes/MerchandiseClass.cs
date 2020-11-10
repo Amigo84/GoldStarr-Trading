@@ -15,7 +15,7 @@ namespace GoldStarr_Trading.Classes
 
         #region Properties
         private string _merchandiseName;
-        public string MerchandiseName
+        public string MerchandiseName  //Get ger värde av _merchandiseName till MerchandiseName (som kan inte ändras)
         {
             get => _merchandiseName;
             set
