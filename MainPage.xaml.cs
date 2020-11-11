@@ -54,16 +54,6 @@ namespace GoldStarr_Trading
 
 
 
-            private void AddNewSupplier_Click(object sender, RoutedEventArgs e)
-            {
-                string nameNewSupVar = NewSupplier.Text;
-
-                //Initierar en lista mes objekt supplier i
-                ObservableCollection<NewSupplier> collectionNewSuppliers = new ObservableCollection<NewSupplier>();
-
-                collectionNewSuppliers.Add(new NewSupplier() { nameNewSupVar });
-
-            }
 
             InStockList.ItemsSource = store.GetCurrentStockList();
             StockToAddList.ItemsSource = store.GetCurrentDeliverysList();
@@ -89,36 +79,6 @@ namespace GoldStarr_Trading
 
 
 
-        #region OLD Methods
-        //private void PopulateCustomerComboBox(StoreClass store)
-        //{
-        //    List<string> customers = new List<string>();
-
-
-        //    foreach (var item in store.Customer)
-        //    {
-        //        customers.Add(item.Name);
-        //    }
-
-        //    //DataContext = customers;
-
-        //    this.CustomersTabComboBox.ItemsSource = customers;
-        //    this.CreateOrderTabCustomersComboBox.ItemsSource = customers;
-        //}
-
-        //private void PopulateCreateOrderComboBox(StoreClass store)
-        //{
-        //    List<string> merchandise = new List<string>();
-
-
-        //    foreach (var item in store.Stock)
-        //    {
-        //        merchandise.Add(item.ItemName);
-        //    }
-
-        //    this.CreateOrderTabItemComboBox.ItemsSource = merchandise;
-        //}
-        #endregion
 
 
         #region Events
@@ -206,28 +166,7 @@ namespace GoldStarr_Trading
         }
 
 
-        private void CurrentSup_Click(object sender, RoutedEventArgs e)
-        {
-            string newSup = NewSupplierTextBox.Text;
-            
-
-            int ageInt = 0;
-
-            if (String.IsNullOrEmpty(newSup))
-            {
-                ErrorMessage.Text = "Write s supplier name!";
-
-
-                _app.People.Add(new Person() { Name = name, Age = ageInt });
-
-                NewSupplierTextBox.Text = "";
-                PersonAgeTextBox.Text = "";
-            }
-            else
-            {
-                
-            }
-
+        
 
 
             private void CustomersTabComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -261,16 +200,7 @@ namespace GoldStarr_Trading
         {
             string customerName = e.AddedItems[0].ToString();
 
-            #region OLD
-            //switch (customerName)
-            //{
-            //    case "Lisa Underwood":
-            //        //var message = new MessageDialog(DataContextProperty.ToString());
-            //        var message = new MessageDialog("CreateOrders Tab ComboBox Changed");
-            //        await message.ShowAsync();
-            //        break;
-            //   }
-            #endregion
+
         }
 
         private void CreateOrderTabItemComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -295,10 +225,19 @@ namespace GoldStarr_Trading
             }
         }
 
+
         #endregion
 
-        private void CurrentSup_TextChanged(object sender, TextChangedEventArgs e)
+        //Detta event kallas på när vi trycker på Add button i vyn "Supplier"
+        private void AddNewSupplier_Click(object sender, RoutedEventArgs e)
         {
+
+            string strNewSupplier = NewSupplierTextBox.Text;                                //-Sparar innehållet av textruta New Supplier strig i strNewSupplier
+            List<NewSupplier> listNewSuppliers = new List<NewSupplier>();                   // -Skapar en lista vid namn listNewSuppliers för objekt NewSupplier 
+            listNewSuppliers.Add(new NewSupplier() { varNewSupName = strNewSupplier});      //-Använder .Add för att lägga in ny objekt av klassen NewSupplier
+                                                                                            //Vi även skickar in data till klassen för att lägga in den som dess namn i
+                                                                                            //den nya objekten.
+
 
         }
     }

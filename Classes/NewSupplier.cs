@@ -13,7 +13,7 @@ namespace GoldStarr_Trading.Classes
         public string varNewSupName { get; set; }
 
 
-        //Metoden tar emot ny namn och ändrar namnet och returnera den nya namnet
+        //Metoden tar emot ny namn och ändrar variabeln varNewSupName
         public  void NewSupplierName(string _newname)
         {
             this.varNewSupName = _newname;
@@ -21,11 +21,6 @@ namespace GoldStarr_Trading.Classes
             
         }
 
-        /*
-        public string NewSupplierName
-        {
-            get { return NewSupName; }
-            set { NewSupName = value; }
-        } */
+        
     }
 }
